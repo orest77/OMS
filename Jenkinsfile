@@ -1,8 +1,6 @@
 
 pipeline {
-	agent {
-        label 'Slave_for_maven'
-    }
+	agent { node { label 'Slave_for_maven' } }
 
 	stages {
 		stage('Compile Stages') {
@@ -17,8 +15,6 @@ pipeline {
 			steps {
 				sshagent(['3c1c5232-5850-474e-813d-d882091e30b8']) {
 					sh 'scp -o StrictHostKeyChecking=no target/*.war orest@192.168.0.122:/var/lib/tomcat/webapps/'
-				
-
 				}
 			}
 		}
@@ -27,6 +23,7 @@ pipeline {
 			steps {
 				sshagent(['3c1c5232-5850-474e-813d-d882091e30b8']) {
 					sh 'ssh -o StrictHostKeyChecking=no  orest@192.168.0.122 "systemctl restart tomcat"' 
+					echo "COOL"
 				}
 			}
 		}
