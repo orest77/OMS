@@ -16,12 +16,8 @@ pipeline {
 		stage('Deploy to Tomcat') {
 			steps {
 				sshagent(['3c1c5232-5850-474e-813d-d882091e30b8']) {
-					def result = sh returnStatus: true, script: 'scp -o StrictHostKeyChecking=no target/*.war orest@192.168.0.122:/var/lib/tomcat/webapps/'
-					if (result != 0) {
-        				echo '[FAILURE] Failed to build'
-        				currentBuild.result = 'FAILURE'
-        				
-    				}
+					sh 'scp -o StrictHostKeyChecking=no target/*.war orest@192.168.0.122:/var/lib/tomcat/webapps/'
+				
 
 				}
 			}
