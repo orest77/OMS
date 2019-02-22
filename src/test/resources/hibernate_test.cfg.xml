@@ -9,9 +9,9 @@
 		<!-- local connection properties -->
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-		<property name="hibernate.connection.url">jdbc:mysql://192.168.0.113:3306/oms</property>
-		<property name="hibernate.connection.username">user_db</property>
-		<property name="hibernate.connection.password">123pass</property>
+		<property name="hibernate.connection.url">jdbc:mysql://192.168.0.122:3306/Tests</property>
+		<property name="hibernate.connection.username">user_test</property>
+		<property name="hibernate.connection.password">pass_test</property>
 
 		<property name="hibernate.hbm2ddl.auto">create-drop</property>
 

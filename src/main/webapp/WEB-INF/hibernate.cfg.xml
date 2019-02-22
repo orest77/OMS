@@ -6,11 +6,11 @@
 		<!-- /MYPC:1433/Blog;instance=SQLEXPRESS local connection properties -->
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property> 
-		<property name="hibernate.connection.url">jdbc:mysql://192.168.0.113:3306/Prod</property>
-		<property name="hibernate.connection.username">orest</property>
-		<property name="hibernate.connection.password">orest7</property>
+		<property name="hibernate.connection.url">jdbc:mysql://192.168.0.122:3306/Prod</property>
+		<property name="hibernate.connection.username">user_prod</property>
+		<property name="hibernate.connection.password">pass_prod</property>
 
-		<property name="hibernate.hbm2ddl.auto">validate</property>
+		<property name="hibernate.hbm2ddl.auto">create</property>
 
 	        <!-- <property name="show_sql">true</property> <property name="format_sql">true</property> -->
 		<mapping class="com.softserveinc.edu.oms.domain.entities.Role" />
