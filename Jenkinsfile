@@ -1,3 +1,4 @@
+
 pipeline {
 	agent {
         label 'Slave_for_maven'
@@ -15,7 +16,7 @@ pipeline {
 		stage('Deploy to Tomcat') {
 			steps {
 				sshagent(['3c1c5232-5850-474e-813d-d882091e30b8']) {
-					sh 'scp -o StrictHostKeyChecking=no target/*.war orest@192.168.0.122:/var/lib/tomcat/webapps/' 
+					def result = sh returnStatus: true, script: 'scp -o StrictHostKeyChecking=no target/*.war orest@192.168.0.122:/var/lib/tomcat/webapps/' 
 				}
 			}
 		}
