@@ -1,7 +1,7 @@
-
-node {
-       	label 'Slave_for_maven'
-       	customWorkspace '/home/orest'
+pipeline {
+	agent {
+        label 'Slave_for_maven'
+    }
 
 	stages {
 		stage('Compile Stages') {
