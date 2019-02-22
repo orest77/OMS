@@ -1,9 +1,7 @@
-pipeline {
-	
-    	node {
-       		label 'Slave_for_maven'
-        	customWorkspace '/home/orest'
-    	}
+
+node {
+       	label 'Slave_for_maven'
+       	customWorkspace '/home/orest'
 
 	stages {
 		stage('Compile Stages') {
