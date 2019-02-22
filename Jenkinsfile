@@ -1,5 +1,7 @@
 pipeline {
-	agent any
+	agent {
+            nodesByLabel 'Slave_for_maven'
+        }
 
 	stages {
 		stage('Compile Stages') {
