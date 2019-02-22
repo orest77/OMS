@@ -1,6 +1,9 @@
 pipeline {
-        nodesByLabel 'Slave_for_maven'
-        
+	agent  {
+    	node {
+        	label 'Slave_for_maven'
+        	customWorkspace '/home/orest'
+    	}
 
 	stages {
 		stage('Compile Stages') {
@@ -26,5 +29,6 @@ pipeline {
 				}
 			}
 		}
+	}
 	}
 }
