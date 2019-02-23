@@ -13,7 +13,7 @@ pipeline {
 		stage('Deploy to Tomcat') {
 			steps {
 				sshagent(credentials: ['11c8c96f-0a39-4893-b03e-0ac3c796871e'], ignoreMissing: true) {
-					sh 'scp -o StrictHostKeyChecking=no target/*.war orest 192.168.0.122:/var/lib/tomcat/webapps/'
+					sh 'ssh -o StrictHostKeyChecking=no -l cloudbees 192.168.1.106 root -a /var/lib/tomcat/webapps/'
 				}
 			}
 		}
@@ -21,7 +21,7 @@ pipeline {
 		stage('Restart Nginx') {
 			steps {
 				sshagent(credentials: ['11c8c96f-0a39-4893-b03e-0ac3c796871e'], ignoreMissing: true) {
-					sh 'ssh -o StrictHostKeyChecking=no  orest@192.168.0.122 "systemctl restart tomcat'
+					sh 'ssh -o StrictHostKeyChecking=no  orest@192.168.0.122 "systemctl restart tomcat"'
 				}
 			}
 		}
