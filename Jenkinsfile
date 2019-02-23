@@ -13,7 +13,7 @@ pipeline {
 		stage('Deploy to Tomcat') {
 			steps {
 				sshagent(credentials: ['11c8c96f-0a39-4893-b03e-0ac3c796871e'], ignoreMissing: true) {
-					sh 'ssh -o StrictHostKeyChecking=no -l root 192.168.1.106:/var/lib/tomcat/webapps/'
+					sh 'ssh -o StrictHostKeyChecking=no -l root 192.168.0.122:/var/lib/tomcat/webapps/'
 				}
 			}
 		}
