@@ -13,8 +13,8 @@ pipeline {
 
 		stage('Deploy to Tomcat') {
 			steps {
-				sshagent(['3d9581e9-8ef0-401e-b35d-b68d232e8f0d']) {
-					sh 'scp -o StrictHostKeyChecking=no target/*.war orest@192.168.0.122:/var/lib/tomcat/webapps/'
+				sshagent(['11c8c96f-0a39-4893-b03e-0ac3c796871e']) {
+					sh 'scp -o StrictHostKeyChecking=no target/*.war orest 192.168.0.122:/var/lib/tomcat/webapps/'
 				}
 			}
 		}
