@@ -5,7 +5,7 @@ pipeline {
 		stage('Compile Stages') {
 			steps {
 				withMaven(maven : 'maven_3_6_0') {
-					sh 'mvn package'
+					sh 'mvn package -Dmaven.test.skip=true'
 				}
 			}
 		}
