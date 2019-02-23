@@ -1,4 +1,3 @@
-
 pipeline {
 	agent { node { label 'Slave_for_maven' } }
 
@@ -6,24 +5,23 @@ pipeline {
 		stage('Compile Stages') {
 			steps {
 				withMaven(maven : 'maven_3_6_0') {
-					sh 'mvn package'
+					sh 'mvn package -Dmaven.test.skip=true'
 				}
 			}
 		}
 
 		stage('Deploy to Tomcat') {
 			steps {
-				sshagent(['11c8c96f-0a39-4893-b03e-0ac3c796871e']) {
-					sh 'scp -o StrictHostKeyChecking=no target/*.war orest 192.168.0.122:/var/lib/tomcat/webapps/'
+				sshagent(['tomcat-dev']) {
+					sh 'scp -o StrictHostKeyChecking=no target/*.war root@192.168.0.122:/var/lib/tomcat/webapps'
 				}
 			}
 		}
 
 		stage('Restart Nginx') {
 			steps {
-				sshagent(['3c1c5232-5850-474e-813d-d882091e30b8']) {
-					sh 'ssh -o StrictHostKeyChecking=no  orest@192.168.0.122 "systemctl restart tomcat"' 
-					echo "COOL"
+				sshagent(['tomcat-dev']) {
+					sh 'ssh -o StrictHostKeyChecking=no  root@192.168.0.122 "systemctl restart tomcat"'
 				}
 			}
 		}
