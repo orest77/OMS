@@ -10,7 +10,7 @@
 		<property name="hibernate.connection.username">user_prod</property>
 		<property name="hibernate.connection.password">pass_prod</property>
 
-		<property name="hibernate.hbm2ddl.auto">create</property>
+		<property name="hibernate.hbm2ddl.auto">validation</property>
 
 	        <!-- <property name="show_sql">true</property> <property name="format_sql">true</property> -->
 		<mapping class="com.softserveinc.edu.oms.domain.entities.Role" />
